@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+note1:
+  title: First Test Case Note
+  body: rails set this up - nice
+
+note2:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note3:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note4:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note5:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note6:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note7:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note8:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note9:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note10:
+  title: My Second Test Case Note
+  body: Details go here...
+
+note11:
+  title: My Second Test Case Note
+  body: Details go here...
+
+notex:
+  title: My Last Test Case Note
+  body: Details go here...
