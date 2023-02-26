@@ -5,7 +5,8 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y nodejs postgresql-client sqlite3 vim --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV RAILS_ENV development
+#ENV RAILS_ENV development
+ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
 
