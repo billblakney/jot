@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def index
-  	@notes = Note.all
+  	@notes = Note.all.reverse
   end
 
   def show
