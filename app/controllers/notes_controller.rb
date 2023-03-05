@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def index
-  	@notes = Note.all.order('notes.created_at DESC').all
+  	@notes = Note.all.order('notes.display_at DESC').all
   end
 
   def show
