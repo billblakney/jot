@@ -4,12 +4,15 @@
 
 <ul>
   <li>
-    <%= link_to "Update", edit_note_path(@note) %>
-  </li>
-  <li>
     <%= link_to "Destroy", note_path(@note), data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                   } %>
+  </li>
+  <li>
+    <%= link_to "Update", edit_note_path(@note) %>
+  </li>
+  <li>
+    <%= link_to "Back to Notes list", notes_path(@note) %>
   </li>
 </ul>
