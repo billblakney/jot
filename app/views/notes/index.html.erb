@@ -14,7 +14,7 @@
       <tr>
       
         <td nowrap="nowrap"> <%= note.created_at.strftime('%a %m/%d/%Y') %></td>
-        <td><%= note.title %></td>
+        <td><%= note.text %></td>
         <td><%= link_to 'Show', note, class: 'btn btn-info btn-sm' %></td>
         <td><%= link_to 'Edit', edit_note_path(note), class: 'btn btn-warning btn-sm' %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: {
