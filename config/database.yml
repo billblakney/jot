@@ -24,24 +24,12 @@ default: &default
 development:
   <<: *default
   database: rolled_notes_development
-
-  # The specified database role being used to connect to postgres.
-  # To create additional roles in postgres see `$ createuser --help`.
-  # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user running Rails.
   username: -HIDE-
-
-  # The password associated with the postgres role (username).
   password: -HIDE-
 
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
-  host: 192.168.XXX.XXX
-
-  # The TCP port the server listens on. Defaults to 5432.
-  # If your server runs on a different port number, change accordingly.
-  port: 5432
+  # nas db settings
+  #host: 192.168.XXX.XXX
+  #port: XXXX
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -79,8 +67,14 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# For running in NAS Docker container, override production settings with:
+#  export DATABASE_URL="postgresql://<usr>:<pwd>@<nas-ip>:<nas-port>/ \
+      rolled_notes_production"
+
 production:
   <<: *default
   database: rolled_notes_production
-  username: rolled_notes
-  password: <%= ENV["ROLLED_NOTES_DATABASE_PASSWORD"] %>
+  username: -HIDE-
+  password: -HIDE-
+#  password: <%= ENV["ROLLED_NOTES_DATABASE_PASSWORD"] %>
+#  url: postgresql://-HIDE-:-HIDE-@192.168.XXX.XXX:PPPP/rolled_notes_production
