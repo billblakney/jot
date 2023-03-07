@@ -1,5 +1,6 @@
-<h1><%= @note.text %></h1>
-
+<h1>Note:</h1>
+<p><%= @note.display_at.strftime('%a %m/%d/%Y %l:%M %p') %></p>
+<p><%= @note.text %></p>
 <p><%= @note.detail %></p>
 
 <ul>
