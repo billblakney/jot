@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def index
-  	@notes = Note.all.order('notes.display_at DESC').all
+    @notes = Note.all.order('notes.display_at DESC').all
   end
 
   def show
@@ -10,18 +10,21 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
- end
+    now_time = Time.now.to_i
+    now_time = Time.at(now_time - (now_time % 1.minutes))
+    @note.display_at = now_time
+  end
 
   def create
     @note = Note.new(note_params)
 
     if @note.save
-      redirect_to action: "index"
+      redirect_to action: 'index'
     else
       render :new, status: unprocessable_entity
     end
   end
-  
+
   def edit
     @note = Note.find(params[:id])
   end
@@ -30,7 +33,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     if @note.update(note_params)
-        redirect_to @note
+      redirect_to @note
     else
       render :edit, status: :unprocessable_entity
     end

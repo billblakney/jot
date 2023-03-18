@@ -1,8 +1,9 @@
+<%= note.display_at.strftime('%a %m/%d/%Y %T.%L') %></br>
 <%= form_with model: note do |form| %>
 
   <div class="form-group">
     <%= form.label :display_at %><br>
-    <%= form.datetime_local_field :display_at, step: "any", class: 'form-control' %>
+    <%= form.datetime_field :display_at, step: "any", class: 'form-control' %>
     <% note.errors.full_messages_for(:text).each do |message| %>
       <div><%= message %></div>
     <% end %>
