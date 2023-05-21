@@ -1,49 +1,61 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 note1:
-  title: First Test Case Note
-  body: rails set this up - nice
+  text: First Test Case Note
+  detail: rails set this up - nice
+  display_at: 2023-05-21
 
 note2:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note3:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note4:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note5:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note6:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note7:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note8:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note9:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note10:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 note11:
-  title: My Second Test Case Note
-  body: Details go here...
+  text: My Second Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21
 
 notex:
-  title: My Last Test Case Note
-  body: Details go here...
+  text: My Last Test Case Note
+  detail: Details go here...
+  display_at: 2023-05-21

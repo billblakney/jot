@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def index
-    @notes = Note.all.order('notes.display_at DESC').all
+    @notes = Note.page(params[:page]).per(10)
   end
 
   def show

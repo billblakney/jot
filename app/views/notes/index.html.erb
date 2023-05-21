@@ -9,6 +9,7 @@
     </tr>
   </thead>
 
+<%= paginate @notes %>
   <tbody>
     <% @notes.each do |note| %>
       <tr>
@@ -25,4 +26,6 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @notes %>
+
 <br>
