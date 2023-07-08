@@ -7,18 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: rolled_notes_development
-  user: -HIDE-
-  password: -HIDE-
+  url: <%= Rails.application.credentials.database_url %>
 
 test:
   <<: *default
-  database: rolled_notes_test
+  url: <%= Rails.application.credentials.database_url %>
 
 production:
   <<: *default
-  database: rolled_notes_production
-  user: -HIDE-
-  password: -HIDE-
-  # password: <%= ENV["ROLLED_NOTES_DATABASE_PASSWORD"] %>
-  # url: postgresql://-HIDE-:-HIDE-@192.168.XXX.XXX:PPPP/rolled_notes_production
+  url: <%= Rails.application.credentials.database_url %>
