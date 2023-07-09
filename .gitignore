@@ -37,4 +37,5 @@
 /config/credentials/production.key
 
 # My stuff -Bill
-passwords.txt
+.cproject
+.project
