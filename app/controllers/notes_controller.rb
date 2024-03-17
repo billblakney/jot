@@ -33,7 +33,11 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     if @note.update(note_params)
-      redirect_to @note
+      if params[:note][:preview].to_i == 1
+        redirect_to @note
+      else
+        redirect_to root_path, status: :see_other
+      end
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,3 +1,15 @@
 <h1>Edit Note</h1>
 
-<%= render "form", note: @note %>
+<%= form_with model: @note do |form| %>
+
+<%= render "form", form: form, note: @note %>
+
+  <br>
+
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-warning btn-sm'%>
+    <%= form.check_box :preview %>
+    <%= form.label :preview, "Preview" %>
+
+  </div>
+<% end %>
