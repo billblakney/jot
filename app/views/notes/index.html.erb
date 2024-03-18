@@ -1,7 +1,16 @@
-<div>
-<%= link_to 'New Note', new_note_path, class: 'btn btn-warning' %>
+<div style="width: 100%; overflow: hidden;">
+  <div style="float: left;">
+    <%= link_to 'New Note', new_note_path, class: 'btn btn-warning btn-sm' %>
+  </div>
+  <div style="margin-left: 15%;">
+    <%= form_tag "/notes", method: "GET" do %>
+      <%= text_field_tag :search_by_string, params[:search_by_string] %>
+      <%= submit_tag "Search", class: 'btn btn-info btn-sm' %>
+    <% end %>
+  </div>
 </div>
-
+<br>
+<div>
 <table class="table">
   <thead>
     <tr>
@@ -26,6 +35,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <%= paginate @notes %>
 
 <br>

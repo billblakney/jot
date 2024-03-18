@@ -1,7 +1,12 @@
 class NotesController < ApplicationController
 
   def index
-   @notes = Note.all.order('notes.display_at DESC').all.page(params[:page]).per(25)
+   if params[:search_by_string] && params[:search_by_string] != ""
+     @notes = Note.where("text ilike ?", "%#{params[:search_by_string]}%")
+   else
+     @notes = Note.all
+   end
+   @notes = @notes.order('notes.display_at DESC').page(params[:page]).per(25)
   end
 
   def show
