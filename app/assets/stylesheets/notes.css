@@ -4,3 +4,27 @@
       color: white;
   
 }
+
+.flex-container > div {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+table {table-layout:fixed}
+td {overflow:hidden; white-space:nowrap}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+th {
+  background-color: #555;
+  color: #fff;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.1em 0.5em;
+  margin: 0px;
+}

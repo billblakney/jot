@@ -1,8 +1,8 @@
-<div style="width: 100%; overflow: hidden;">
-  <div style="float: left;">
+<div class="flex-container">
+  <div>
     <%= link_to 'New Note', new_note_path, class: 'btn btn-warning btn-sm' %>
   </div>
-  <div style="margin-left: 15%;">
+  <div>
     <%= form_tag "/notes", method: "GET" do %>
       <%= text_field_tag :search_string, params[:search_string], value: session[:search_string] %>
       <%= hidden_field_tag :is_submit, value: "true" %>
@@ -10,12 +10,13 @@
     <% end %>
   </div>
 </div>
-<br>
 <div>
-<table class="table">
+<table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
