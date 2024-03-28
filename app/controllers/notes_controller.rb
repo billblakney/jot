@@ -1,12 +1,33 @@
 class NotesController < ApplicationController
 
   def index
-   if params[:search_by_string] && params[:search_by_string] != ""
-     @notes = Note.where("text ilike ?", "%#{params[:search_by_string]}%")
-   else
-     @notes = Note.all
-   end
-   @notes = @notes.order('notes.display_at DESC').page(params[:page]).per(25)
+    # Was anything present in the search box?
+    has_search_str = params[:search_string] && params[:search_string] != ""
+
+    # Did we reach this method via submission of the search form?
+    is_submit = params[:is_submit] != nil
+
+    if is_submit
+      if has_search_str
+        #save the search string on search submit
+        session[:search_string] = params[:search_string]
+      else
+        #clear the search string on search submit
+        session[:search_string] = nil
+      end
+    else
+      #was not a search submit so leave search string as-is
+    end
+
+    search_string = session[:search_string]
+
+    if search_string != nil
+       @notes = Note.where("text ilike ?", "%#{search_string}%")
+    else
+       @notes = Note.all
+    end
+
+    @notes = @notes.order('notes.display_at DESC').page(params[:page]).per(25)
   end
 
   def show

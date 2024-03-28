@@ -4,7 +4,8 @@
   </div>
   <div style="margin-left: 15%;">
     <%= form_tag "/notes", method: "GET" do %>
-      <%= text_field_tag :search_by_string, params[:search_by_string] %>
+      <%= text_field_tag :search_string, params[:search_string], value: session[:search_string] %>
+      <%= hidden_field_tag :is_submit, value: "true" %>
       <%= submit_tag "Search", class: 'btn btn-info btn-sm' %>
     <% end %>
   </div>
