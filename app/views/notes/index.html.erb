@@ -27,12 +27,12 @@
       
         <td nowrap="nowrap"> <%= note.display_at.strftime('%a %m/%d/%Y') %></td>
         <td><%= note.text %></td>
-        <td><%= link_to 'Show', note, class: 'btn btn-info btn-sm' %></td>
-        <td><%= link_to 'Edit', edit_note_path(note), class: 'btn btn-warning btn-sm' %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: {
+        <td><%= link_to show_svg('eye-fill.svg'), note %></td>
+        <td><%= link_to show_svg('pencil-fill.svg'), edit_note_path(note) %></td>
+        <td><%= link_to show_svg('trash-fill.svg'), note, method: :delete, data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
-                  }, class: 'btn btn-danger btn-sm' %></td>
+                  } %></td>
       </tr>
     <% end %>
   </tbody>
