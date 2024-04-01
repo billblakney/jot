@@ -1,43 +1,75 @@
+
 <div class="flex-container">
+
+  <!--------------------->
+  <!-- "New note" svg  -->
+  <!--------------------->
+  <div>
+    <%= link_to show_svg('pencil-square.svg'), new_note_path %>  New note
+  </div>
+
+  <!----------------------->
+  <!-- "New note" button -->
+  <!----------------------->
+  <!--
   <div>
     <%= link_to 'New Note', new_note_path, class: 'btn btn-warning btn-sm' %>
   </div>
+  -->
+
+  <!--------------------->
+  <!-- Search form     -->
+  <!--------------------->
   <div>
     <%= form_tag "/notes", method: "GET" do %>
+      <!--%= submit_tag show_svg('pencil-square.svg'), class: 'btn btn-info btn-sm' %-->
       <%= text_field_tag :search_string, params[:search_string], value: session[:search_string] %>
+
+      <!--hidden tag for controller index method to consume -->
       <%= hidden_field_tag :is_submit, value: "true" %>
-      <%= submit_tag "Search", class: 'btn btn-info btn-sm' %>
+
+      <%= button_tag(type: "submit", class: "svg-search-button") do %>
+        <% show_svg('search.svg') %>
+      <% end %>
     <% end %>
   </div>
-</div>
+
+</div> <!-- flex-container-->
+
+<!--------------------->
+<!-- table           -->
+<!--------------------->
 <div>
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-<%= paginate @notes %>
-  <tbody>
-    <% @notes.each do |note| %>
+  <table>
+    <thead>
       <tr>
-      
-        <td nowrap="nowrap"> <%= note.display_at.strftime('%a %m/%d/%Y') %></td>
-        <td><%= note.text %></td>
-        <td><%= link_to show_svg('eye-fill.svg'), note %></td>
-        <td><%= link_to show_svg('pencil-fill.svg'), edit_note_path(note) %></td>
-        <td><%= link_to show_svg('trash-fill.svg'), note, method: :delete, data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                  } %></td>
+        <th>Date</th>
+        <th></th>
+        <th>Title</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-<%= paginate @notes %>
+    </thead>
 
-<br>
+    <%= paginate @notes %>
+
+    <tbody>
+      <% @notes.each do |note| %>
+        <tr>
+      
+          <td> <%= note.display_at.strftime('%a %m/%d/%y') %></td>
+          <td class="row-action-btn"><%= link_to show_svg('eye-fill.svg'), note %></td>
+          <td><%= note.text %></td>
+          <td class="row-action-btn"><%= link_to show_svg('pencil-fill.svg'), edit_note_path(note) %></td>
+          <td class="row-action-btn" ><%= link_to show_svg('trash-fill.svg'), note, method: :delete, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @notes %>
+</div>
+
+

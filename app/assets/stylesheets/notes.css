@@ -10,7 +10,10 @@
   padding: 0px;
 }
 
-table {table-layout:fixed}
+table {
+  table-layout: fixed;
+}
+
 td {overflow:hidden; white-space:nowrap}
 
 tr:nth-child(odd) {
@@ -27,4 +30,28 @@ td {
   text-align: left;
   padding: 0.1em 0.5em;
   margin: 0px;
+}
+
+.row-action-btn {
+  padding: 3px;
+  #background-color: yellow;
+  width: 16;
+}
+
+.svg-search-button {
+  background-color: lightgreen;
+  #border: #fff;
+  border: none;
+}
+
+@media only screen and (max-width: 450) {
+  td:nth-child(4) {
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 450) {
+  td:nth-child(5) {
+    display:none;
+  }
 }
