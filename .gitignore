@@ -36,6 +36,9 @@
 
 /config/credentials/production.key
 
+# Ignore local dev db
+/db/development.sqlite3
+
 # My stuff -Bill
 .cproject
 .project
