@@ -7,8 +7,11 @@ default: &default
 
 development:
   <<: *default
-  url: <%= Rails.application.credentials.database_url %>
+  adapter: sqlite3
+  database: db/development.sqlite3
+  #url: <%= Rails.application.credentials.database_url %>
 
+# not currently using this
 test:
   <<: *default
   url: <%= Rails.application.credentials.database_url %>
