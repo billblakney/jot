@@ -1,0 +1,24 @@
+FROM ruby:3.2.0
+
+RUN mkdir -p /app
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y nodejs postgresql-client sqlite3 vim --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+ENV RAILS_ENV development
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
+COPY Gemfile /app
+COPY Gemfile.lock /app
+RUN bundle config --global
+RUN bundle install
+
+COPY . /app
+RUN bundle exec rake DATABASE_URL=sqlite3:does_not_exist assets:precompile
+
+WORKDIR /app
+
+EXPOSE 3000
+
+CMD bash
