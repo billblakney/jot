@@ -15,9 +15,6 @@ RUN bundle config --global
 RUN bundle install
 
 COPY . /app
-RUN bundle exec rake DATABASE_URL=sqlite3:does_not_exist assets:precompile
-
-WORKDIR /app
 
 EXPOSE 3000
 
