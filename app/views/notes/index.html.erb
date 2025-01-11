@@ -57,6 +57,11 @@
       <% @notes.each do |note| %>
         <tr>
       
+          <% if note.pin %>
+          <td> <%= link_to show_svg('pin-fill.svg') %></td>
+          <% else %>
+          <td> <%= link_to show_svg('pin-angle.svg') %></td>
+          <% end %>
           <td> <%= note.display_at.strftime('%a %m/%d/%y') %></td>
           <td class="row-action-btn"><%= link_to show_svg('eye-fill.svg'), note %></td>
           <td><%= note.text %></td>

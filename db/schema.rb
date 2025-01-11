@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_211355) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_07_012402) do
   create_table "notes", force: :cascade do |t|
     t.text "text"
     t.text "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "display_at"
+    t.boolean "pin", default: false, null: false
   end
 
 end

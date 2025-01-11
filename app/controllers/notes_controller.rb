@@ -27,7 +27,7 @@ class NotesController < ApplicationController
        @notes = Note.all
     end
 
-    @notes = @notes.order('notes.display_at DESC').page(params[:page]).per(25)
+    @notes = @notes.order('notes.pin DESC', 'notes.display_at DESC').page(params[:page]).per(25)
   end
 
   def show
@@ -79,7 +79,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:text, :detail, :display_at)
+    params.require(:note).permit(:text, :detail, :pin, :display_at)
   end
 
 end
