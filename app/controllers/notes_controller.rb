@@ -27,7 +27,7 @@ class NotesController < ApplicationController
        @notes = Note.all
     end
 
-    @notes = @notes.order('notes.pin DESC', 'notes.display_at DESC').page(params[:page]).per(25)
+    @notes = @notes.order('notes.pin DESC','notes.display_at DESC').page(params[:page]).per(25)
   end
 
   def show
@@ -74,6 +74,17 @@ class NotesController < ApplicationController
     @note.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def toggle_pin
+    @note = Note.find(params[:id])
+    @note.update(pin: !@note.pin)
+    redirect_to action: 'index'
+ 
+    respond_to do |format|
+      format.html { redirect_to notes_path, notice: 'Pin status updated successfully.' }
+      format.turbo_stream
+    end
   end
 
   private
