@@ -79,12 +79,14 @@ class NotesController < ApplicationController
   def toggle_pin
     @note = Note.find(params[:id])
     @note.update(pin: !@note.pin)
-    redirect_to action: 'index'
  
-    respond_to do |format|
-      format.html { redirect_to notes_path, notice: 'Pin status updated successfully.' }
-      format.turbo_stream
-    end
+    # Would need some work to setp partial updates using turbo stream
+    #respond_to do |format|
+    #  format.html { redirect_to notes_path, notice: 'Pin status updated successfully.' }
+    #  format.turbo_stream { render turbo_stream: turbo_stream.replace(@note, partial: 'notes/note', locals: { note: @note }) }
+    #end
+
+    redirect_to action: 'index'
   end
 
   private
