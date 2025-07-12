@@ -27,7 +27,7 @@ class NotesController < ApplicationController
        @notes = Note.all
     end
 
-    @notes = @notes.order('notes.display_at DESC').page(params[:page]).per(25)
+    @notes = @notes.order('notes.pin DESC','notes.display_at DESC').page(params[:page]).per(25)
   end
 
   def show
@@ -76,10 +76,23 @@ class NotesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def toggle_pin
+    @note = Note.find(params[:id])
+    @note.update(pin: !@note.pin)
+ 
+    # Would need some work to setp partial updates using turbo stream
+    #respond_to do |format|
+    #  format.html { redirect_to notes_path, notice: 'Pin status updated successfully.' }
+    #  format.turbo_stream { render turbo_stream: turbo_stream.replace(@note, partial: 'notes/note', locals: { note: @note }) }
+    #end
+
+    redirect_to action: 'index'
+  end
+
   private
 
   def note_params
-    params.require(:note).permit(:text, :detail, :display_at)
+    params.require(:note).permit(:text, :detail, :pin, :display_at)
   end
 
 end

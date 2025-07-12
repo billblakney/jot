@@ -43,6 +43,7 @@
   <table>
     <thead>
       <tr>
+        <th></th>
         <th>Date</th>
         <th></th>
         <th>Title</th>
@@ -57,6 +58,15 @@
       <% @notes.each do |note| %>
         <tr>
       
+          <% if note.pin %>
+            <td class="row-action-btn"> <%= link_to show_svg('pin-fill.svg'), toggle_pin_note_path(note), method: :patch, data: {
+               turbo_method: :patch,
+               turbo_confirm: "Are you sure you want to unpin this note?"
+            } %>
+          <% else %>
+            <!--<td class="row-action-btn"> <%= link_to show_svg('pin-angle.svg') %></td>-->
+            <td class="row-action-btn"></td>
+          <% end %>
           <td> <%= note.display_at.strftime('%a %m/%d/%y') %></td>
           <td class="row-action-btn"><%= link_to show_svg('eye-fill.svg'), note %></td>
           <td><%= note.text %></td>
